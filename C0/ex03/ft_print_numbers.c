@@ -1,20 +1,19 @@
 #include <unistd.h>
 
-void ft_print_alphabet(void)
+void ft_print_numbers(void)
 {
     int i;
 
-    i = 97;
-    while (i <= 122)
+    i = 48;
+    while (i <= 57)
     {
         write(1, &i, 1);
-        write(1, "\n", 1);
         i++;
     }
 }
 
 int main ()
 {
-    ft_print_alphabet();
+    ft_print_numbers();
     return (0);
 }

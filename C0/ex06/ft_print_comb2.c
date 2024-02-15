@@ -37,7 +37,8 @@ void ft_print_comb2(void)
                     b2 = 0;
                     while (b2 <= 9)
                     {
-                        ft_putchar(a1 + '0', a2 + '0', b1 + '0', b2 + '0');
+                        if(a1 + a2 < b1 + b2)
+                            ft_putchar(a1 + '0', a2 + '0', b1 + '0', b2 + '0');
                         b2++;
                     }
                     b1++;

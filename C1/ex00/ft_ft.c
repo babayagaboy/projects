@@ -3,17 +3,19 @@
 
 int ft_ft(int *nbr)
 {
-    write(1, &nbr, 2);
-    printf("%d\n" , nbr);
-    printf("%d\n" , *nbr);
+    int n;
+
+    n = 42;
+    *nbr = n;
+
+    write(1, *nbr, 2);    
 }
 
 int main ()
 {
-    int n = 42;
+    int num;
+    int *ip = &num;
 
-    int *ip = &n;
     ft_ft(ip);
-    printf("%d\n" , *ip);
     return (0);
 }

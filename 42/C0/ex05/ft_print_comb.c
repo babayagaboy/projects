@@ -19,13 +19,13 @@ void ft_print_comb(void)
     while (a <= 7)
     {
         b = a + 1;
-        while (b <= 9)
+        while (b <= 8)
         {
             c = b + 1;
             while (c <= 9)
             {
                 ft_putchar('0' + a, '0' + b, '0' + c);
-                if (!(a == 7 && b == 8 && c == 9))
+                if (!(a == 7))
                     write(1, ", ", 2);
                 c++;
             }

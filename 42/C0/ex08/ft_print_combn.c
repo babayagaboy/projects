@@ -4,22 +4,25 @@
 void ft_putchar(char c)
 {
     write(1, &c, 1);
-    write(1, ", ", 2);
-
 }
 
 void ft_print_combn(int n)
 {
-    int *casa;
+    int casa[n];
     int i;
     int i2;
-    int n2;
+    int y;
+    int d;
+    int j;
 
-    n2 = n;
+    j = 1;
+    d = 9 - n;
+
+    y = 0;
     i = 0;
     i2 = 0;
-    casa[0] = 0; // a
-    while (casa[i] <= 9 - n)
+    casa[i] = 0; // a
+    while (casa[i] <= d)
     {
         casa[i + 1] = casa[i] + 1; // a + 1
         
@@ -27,28 +30,31 @@ void ft_print_combn(int n)
         while (i < n - 1)
         {
             i++;
-            casa[i + 1] = casa[i] + 1; // a + 1
+            casa[i + 1] = casa[i] + 1; // b + 1
         }
 
         printf(" i1: %d c\n", casa[i]);
-        
-        while (casa[i] <= 9)
+        while (casa[i2] <= d)
         {
-                while (i2 < i)
+            while(casa[i - j] <= 9 - d)
+            {
+                casa[i] = casa[i - 1] + 1;
+                while (casa[i] <= 9)
                 {
-                    ft_putchar('0' + casa[i2]);
-                    i2++;
+                        while(y < i)
+                        {
+                            ft_putchar('0' + casa[i2 + y]);
+                            y++;
+                        }
+                        y = 0;
+                        ft_putchar('0' + casa[i]);
+                        write(1, ", ", 2);
+                        casa[i]++;
                 }
-                
-                ft_putchar('0' + casa[i]);
-                casa[i]++;
+                casa[i - j]++;
+            }
+            casa[i2]++;
         }
-        // while (casa[i + 1] <= 10 - 1 - n2)
-        // {
-        //     printf(" i2: %d", casa[i]);
-        //     ft_putchar(casa[i] + '0');
-        //     n2--;
-        // }
     }
 }
 
@@ -60,7 +66,3 @@ int main()
     ft_print_combn(n);
     return (0);
 }
-
-
-// if (!(casa[0] == 9 - n))
-//     write(1, ", ", 2);

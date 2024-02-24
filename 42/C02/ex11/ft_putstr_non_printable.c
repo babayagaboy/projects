@@ -21,6 +21,7 @@ void ft_putstr_non_printable(char *str)
             ft_putchar("\\");
             if (str[i] >= 0 && str[i] <= 10)
                 ft_putchar("0");
+            
         }
     }
 }

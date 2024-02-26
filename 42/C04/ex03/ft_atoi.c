@@ -21,7 +21,7 @@ int ft_atoi(char *str)
         i++;
     }
 
-    while (str[i] >= 0 && str[i] <= 9)
+    while (str[i] >= '0' && str[i] <= '9')
     {
         result = result * 10 + (str[i] - '0');
         i++;
@@ -32,13 +32,13 @@ int ft_atoi(char *str)
 
 int main(int argc, char **argv)
 {
-    printf("%d\n", ft_atoi("123"));
-    printf("%d\n", ft_atoi("-123"));
+    printf("%d\n", ft_atoi("        1323"));
+    printf("%d\n", ft_atoi("++---126"));
     printf("%d\n", ft_atoi("123asd"));
 
-    // if (argc >= 1)
-    //     printf("this is the number you wanted: %d\n" , ft_atoi(argv[1]));
-    // else
-    //     printf("erro");
+    if (argc >= 1)
+        printf("this is the number you wanted: %d\n" , ft_atoi(argv[1]));
+    else
+        printf("erro");
     return (0);
 }

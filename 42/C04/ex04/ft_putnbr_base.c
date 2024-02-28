@@ -98,10 +98,11 @@ int main()
     int nbr;
     char *base;
 
-    nbr = -123;
-    base = "0123456789ABCDEF";
+    nbr = 2005;
+    base = "abcdef";
 
     printf("original: %d\n" , nbr);
+    
     ft_putnbr_base(nbr, base);
     return (0);
 }

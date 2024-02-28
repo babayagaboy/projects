@@ -33,7 +33,6 @@ while (True):
         break
 
 print("nr de tentatvas para achar as es duas estrelas: ", i)
-print("probabilidade de acertar as estrelas é 1/144 ou " , 1/144 * 100 , "%")
 
 i = 0
 
@@ -64,4 +63,3 @@ while (True):
         break
 
 print("nr de tentatvas para achar as es cinco numeros: ", i)
-print("probabilidade de acertar os numeros é 1/312500000 ou " , 1/312500000 * 100 , "%")

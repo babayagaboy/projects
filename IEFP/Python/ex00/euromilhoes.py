@@ -44,18 +44,21 @@ def entradaEuromilhoes():
     numeros[3] = num[3] if num[3] > 0 and num[3] <= 50 else None
     numeros[4] = num[4] if num[4] > 0 and num[4] <= 50 else None
 
-
-
-
-
-
 entradaEuromilhoes()
+
+estrelas.sort()
+numeros.sort()
+
 print()
 
-while (semanas != 100):
+while (pontos < 23):
 
     pontos = 0
+
     euromilhoes() # gera o euro milhoes
+
+    euroEstrelas.sort()
+    euroNumeros.sort()
 
     for i in range(0 , 2):
         if (estrelas[i] == euroEstrelas[i]):
@@ -63,8 +66,10 @@ while (semanas != 100):
     for j in range(0 , 5):
         if (numeros[j] == euroNumeros[j]):
             pontos += 1                         #verifica se acertou algum numero ou estrela
-
-    if (pontos == 22):
+    if (pontos == 21):
+        print(Color.GREEN + "ganhou o quinto premio de 100 euros, o euromilhoes era: " + ', '.join(map(str, euroEstrelas)) + " | " + ', '.join(map(str , euroNumeros)) + Color.END)
+        jogosGanhos += 1
+    elif (pontos == 22):
         print(Color.GREEN + "ganhou o quarto premio de 1,000 euros, o euromilhoes era: " + ', '.join(map(str, euroEstrelas)) + " | " + ', '.join(map(str , euroNumeros)) + Color.END)
         jogosGanhos += 1
     elif (pontos == 23):

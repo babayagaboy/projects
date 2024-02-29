@@ -4,7 +4,6 @@ class Color:
     RED = '\033[91m'
     GREEN = '\033[92m'
     BLUE = '\033[94m'
-
     END = '\033[0m'
 
 estrelas = [None , None]
@@ -45,35 +44,40 @@ def entradaEuromilhoes():
     numeros[3] = num[3] if num[3] > 0 and num[3] <= 50 else None
     numeros[4] = num[4] if num[4] > 0 and num[4] <= 50 else None
 
+
+
+
+
+
 entradaEuromilhoes()
 print()
 
-while (semanas != 7000000):
+while (semanas != 100):
 
+    pontos = 0
     euromilhoes() # gera o euro milhoes
 
     for i in range(0 , 2):
         if (estrelas[i] == euroEstrelas[i]):
             pontos += 10
-    for j in range(0 , 4):
+    for j in range(0 , 5):
         if (numeros[j] == euroNumeros[j]):
             pontos += 1                         #verifica se acertou algum numero ou estrela
 
     if (pontos == 22):
-        print(Color.GREEN +"ganhou o quarto premio de 1,000 euros, o euromilhoes era: " , euroEstrelas , euroNumeros + Color.END)
+        print(Color.GREEN + "ganhou o quarto premio de 1,000 euros, o euromilhoes era: " + ', '.join(map(str, euroEstrelas)) + " | " + ', '.join(map(str , euroNumeros)) + Color.END)
         jogosGanhos += 1
     elif (pontos == 23):
-        print(Color.GREEN +"ganhou o terceiro premio de 10,000 euros, o euromilhoes era: " , euroEstrelas , euroNumeros + Color.END)
+        print(Color.GREEN + "ganhou o terceiro premio de 10,000 euros, o euromilhoes era: " + ', '.join(map(str, euroEstrelas)) + " | " + ', '.join(map(str , euroNumeros)) + Color.END)
         jogosGanhos += 1
     elif (pontos == 24):
-        print(Color.GREEN +"ganhou o segundo premio de 100,000 euros, o euromilhoes era: " , euroEstrelas , euroNumeros + Color.END)
+        print(Color.GREEN + "ganhou o segundo premio de 100,000 euros, o euromilhoes era: " + ', '.join(map(str, euroEstrelas)) + " | " + ', '.join(map(str , euroNumeros)) + Color.END)
         jogosGanhos += 1
     elif (pontos == 25):
-        print(Color.BLUE +"ganhou o euromilhoes premio de 10,000,000 euros, o euromilhoes era: " , euroEstrelas , euroNumeros + Color.END)
+        print(Color.BLUE + "ganhou o euromilhoes premio de 10,000,000 euros, o euromilhoes era: " + ', '.join(map(str, euroEstrelas)) + " | " + ', '.join(map(str , euroNumeros)) + Color.END)
         jogosGanhos += 1
     else:
-        print(Color.RED + "perdeu, o euromilhoes era: " , euroEstrelas , euroNumeros + Color.END)
-    pontos = 0
+        print(Color.RED + "perdeu, o euromilhoes era: " + ', '.join(map(str, euroEstrelas)) + " | " + ', '.join(map(str, euroNumeros)) + Color.END)
     semanas += 1
 
 
@@ -81,3 +85,4 @@ if (jogosGanhos != 0):
     print("\nGanhou " , jogosGanhos , " vezes")
 else:
     print("\nnao ganhou nenhuma vez")
+print(semanas, " tentativas")

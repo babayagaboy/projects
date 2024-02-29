@@ -1,65 +1,83 @@
 import random
 
+class Color:
+    RED = '\033[91m'
+    GREEN = '\033[92m'
+    BLUE = '\033[94m'
+
+    END = '\033[0m'
+
 estrelas = [None , None]
 numeros = [None, None, None, None, None]
 
+euroEstrelas = [None , None]
+euroNumeros = [None , None , None , None , None]
+
 i = 0
 rnd = 0
+semanas = 0
+pontos = 0
+jogosGanhos = 0
 
-entrada = input("digite dois numeros entre 1 : 12 e cinco entre 0 : 50: ")
-num = [int (x) for x in entrada.split()]
+def euromilhoes():
+    euroEstrelas[0] = random.randrange(1 , 13)
+    euroEstrelas[1] = random.randrange(1 , 13)
 
-estrelas[0] = num[0] if num[0] > 0 and num[0] <= 12 else None
-estrelas[1] = num[1] if num[1] > 0 and num[1] <= 12 else None
+    euroNumeros[0] = random.randrange(1 , 51)
+    euroNumeros[1] = random.randrange(1 , 51)
+    euroNumeros[2] = random.randrange(1 , 51)
+    euroNumeros[3] = random.randrange(1 , 51)
+    euroNumeros[4] = random.randrange(1 , 51)
 
-numeros[0] = num[2] if num[2] > 0 and num[2] <= 50 else None
-numeros[1] = num[3] if num[3] > 0 and num[3] <= 50 else None
-numeros[2] = num[4] if num[4] > 0 and num[4] <= 50 else None
-numeros[3] = num[5] if num[5] > 0 and num[5] <= 50 else None
-numeros[4] = num[6] if num[6] > 0 and num[6] <= 50 else None
+def entradaEuromilhoes():
+    entrada = input("digite dois numeros entre 1 : 12: ") 
+    num = [int (x) for x in entrada.split()]
 
-print(estrelas , numeros)
+    estrelas[0] = num[0] if num[0] > 0 and num[0] <= 12 else None # recebe os dois valores das estrelas
+    estrelas[1] = num[1] if num[1] > 0 and num[1] <= 12 else None
 
-while (True):
-    rnd = random.randrange(1,13)
-    i += 1
-    if (rnd == estrelas[0]):
-        while (True):
-            rnd = random.randrange(1, 13)
-            i += 1
-            if (rnd == estrelas[1]):
-    
-                break
-        break
+    entrada = input("digite dois numeros entre 1 : 50: ")
+    num = [int (x) for x in entrada.split()]
 
-print("nr de tentatvas para achar as es duas estrelas: ", i)
+    numeros[0] = num[0] if num[0] > 0 and num[0] <= 50 else None # recebe os cinco valores dos numeros
+    numeros[1] = num[1] if num[1] > 0 and num[1] <= 50 else None
+    numeros[2] = num[2] if num[2] > 0 and num[2] <= 50 else None
+    numeros[3] = num[3] if num[3] > 0 and num[3] <= 50 else None
+    numeros[4] = num[4] if num[4] > 0 and num[4] <= 50 else None
 
-i = 0
+entradaEuromilhoes()
+print()
 
-while (True):
-    rnd = random.randrange(1, 51)
-    i += 1
-    if (rnd == numeros[0]):
-        while (True):
-            rnd = random.randrange(1,  51)
-            i += 1
-            if (rnd == numeros[1]):
-                while (True):
-                    rnd = random.randrange(1,  51)
-                    i += 1
-                    if (rnd == numeros[2]):
-                        while (True):
-                            rnd = random.randrange(1,  51)
-                            i += 1
-                            if (rnd == numeros[3]):
-                                while (True):
-                                    rnd = random.randrange(1,  51)
-                                    i += 1
-                                    if (rnd == numeros[4]):
-                                        break
-                                break
-                        break
-                break
-        break
+while (semanas != 7000000):
 
-print("nr de tentatvas para achar as es cinco numeros: ", i)
+    euromilhoes() # gera o euro milhoes
+
+    for i in range(0 , 2):
+        if (estrelas[i] == euroEstrelas[i]):
+            pontos += 10
+    for j in range(0 , 4):
+        if (numeros[j] == euroNumeros[j]):
+            pontos += 1                         #verifica se acertou algum numero ou estrela
+
+    if (pontos == 22):
+        print(Color.GREEN +"ganhou o quarto premio de 1,000 euros, o euromilhoes era: " , euroEstrelas , euroNumeros + Color.END)
+        jogosGanhos += 1
+    elif (pontos == 23):
+        print(Color.GREEN +"ganhou o terceiro premio de 10,000 euros, o euromilhoes era: " , euroEstrelas , euroNumeros + Color.END)
+        jogosGanhos += 1
+    elif (pontos == 24):
+        print(Color.GREEN +"ganhou o segundo premio de 100,000 euros, o euromilhoes era: " , euroEstrelas , euroNumeros + Color.END)
+        jogosGanhos += 1
+    elif (pontos == 25):
+        print(Color.BLUE +"ganhou o euromilhoes premio de 10,000,000 euros, o euromilhoes era: " , euroEstrelas , euroNumeros + Color.END)
+        jogosGanhos += 1
+    else:
+        print(Color.RED + "perdeu, o euromilhoes era: " , euroEstrelas , euroNumeros + Color.END)
+    pontos = 0
+    semanas += 1
+
+
+if (jogosGanhos != 0):
+    print("\nGanhou " , jogosGanhos , " vezes")
+else:
+    print("\nnao ganhou nenhuma vez")

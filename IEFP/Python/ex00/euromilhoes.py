@@ -51,7 +51,7 @@ numeros.sort()
 
 print()
 
-while (pontos < 23):
+while (semanas < 1000):
 
     pontos = 0
 

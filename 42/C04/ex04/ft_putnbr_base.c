@@ -99,7 +99,7 @@ int main()
     char *base;
 
     nbr = 2005;
-    base = "abcdef";
+    base = "0123456789ABCDEF";
 
     printf("original: %d\n" , nbr);
     

@@ -3,22 +3,11 @@
   "configurations": [
     {
       "name": "C/C++ Runner: Debug Session",
-      "type": "cppdbg",
+      "type": "lldb",
       "request": "launch",
       "args": [],
-      "stopAtEntry": false,
-      "externalConsole": true,
-      "cwd": "c:/VC/projects/42/C0/ex08",
-      "program": "c:/VC/projects/42/C0/ex08/build/Debug/outDebug",
-      "MIMode": "gdb",
-      "miDebuggerPath": "gdb",
-      "setupCommands": [
-        {
-          "description": "Enable pretty-printing for gdb",
-          "text": "-enable-pretty-printing",
-          "ignoreFailures": true
-        }
-      ]
+      "cwd": "/Users/hugoguterres/Documents/projects/IEFP/cpp/exercicios/ex01",
+      "program": "/Users/hugoguterres/Documents/projects/IEFP/cpp/exercicios/ex01/build/Debug/outDebug"
     }
   ]
 }

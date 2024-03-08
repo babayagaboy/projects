@@ -3,6 +3,7 @@
 #include <chrono>
 #include <thread>
 #include <string>
+#include <cstring>
 
 
 using namespace std;
@@ -11,6 +12,7 @@ using std::chrono::milliseconds;
 
 void showMenu()
 {
+    system("cls");
     cout << R"(
     ****************************************************
     *                                                  *
@@ -30,30 +32,87 @@ void showMenu()
 
 void diagonalEsquerda(char *str)
 {
-    for (int i = 0; str[i] != '\0'; i++) {
-        for (int j = 0; j <= i; j++) {
-            cout << ' ' << endl;
+    for (int index = 0; str[index] != '\0'; index++) {
+        for (int j = 0; j < index; j++) {
+            cout << ' ';
         }
-        cout << str[i] << endl;
+        sleep_for(milliseconds(300));
+        cout << str[index] << endl;
     }
+
+    sleep_for(milliseconds(1000));
+}
+
+void diagonalEsquerdaInvert(char *str)
+{
+    int lenght = strlen(str); // fazer proprio strlen() se nao for aceite
+
+    for (int index = lenght - 1; str[index] != '\0'; index--) {
+        for (int j = 0; j < lenght - index; j++) {
+            cout << ' ';
+        }
+        sleep_for(milliseconds(300));
+        cout << str[index] << endl;
+    }
+
+    sleep_for(milliseconds(1000));
+}
+
+void diagonalCruzadas(char *str)
+{
+    int lenght = strlen(str);
+
+    for (int index = 0; str[index] != '\0' ; index++)
+    {
+        for (int j = 0; j < index / 2; j++) {
+            cout << ' ';
+        }
+        sleep_for(milliseconds(300));
+        cout << str[index] << endl;
+        for (int j = 0; j <= (lenght - 1) / 2; j--)
+        {
+            cout << ' ';
+        }
+        
+    }
+        
 }
 
 int main ()
 {
-    char str[] = "gustavo";
+    char str[] = "JOSE MOURINHO";
     char escolha;
 
-    showMenu();
-
-    cin >> escolha;
-
-    switch (escolha)
+    while (true)
     {
-    case 1:
-        diagonalEsquerda(str);
-        break;
-    
-    default:
-        break;
+        showMenu();
+
+        cin >> escolha;
+
+        switch (escolha)
+        {
+            case '1':           //Diagonal Esquerda 
+                system("cls");
+                diagonalEsquerda(str);
+                escolha = ' ';
+            case '2':           //Diagonal Esquerda, Texto Invertido 
+                system("cls");
+                diagonalEsquerdaInvert(str);
+                escolha = ' ';
+            case '3':           //Diagonais Cruzadas 
+                system("cls");
+                diagonalCruzadas(str);
+                escolha = ' ';
+            case '4':           //Em V
+
+            case '5':           //Deslizante
+
+            case 'T' || 't':
+
+            //case 'E' || 'e':
+                break;
+            default:
+                cout << "opcao invalida" << endl;
+        }
     }
 }

@@ -5,6 +5,8 @@
 #include <string>
 #include <cstring>
 
+    //system("clear");
+    //system("cls");
 
 using namespace std;
 using std::this_thread::sleep_for;
@@ -12,7 +14,7 @@ using std::chrono::milliseconds;
 
 void showMenu()
 {
-    system("cls");
+    system("clear");
     cout << R"(
     ****************************************************
     *                                                  *
@@ -30,53 +32,66 @@ void showMenu()
     )" << endl;
 }
 
+/*--------------------------------------------------------*/
+
 void diagonalEsquerda(char *str)
 {
     for (int index = 0; str[index] != '\0'; index++) {
         for (int j = 0; j < index; j++) {
             cout << ' ';
         }
-        sleep_for(milliseconds(300));
+        sleep_for(milliseconds(1)); // nao esquecer de aumentar o tempo
         cout << str[index] << endl;
     }
 
     sleep_for(milliseconds(1000));
 }
+
+/*--------------------------------------------------------*/
 
 void diagonalEsquerdaInvert(char *str)
 {
     int lenght = strlen(str); // fazer proprio strlen() se nao for aceite
 
-    for (int index = lenght - 1; str[index] != '\0'; index--) {
-        for (int j = 0; j < lenght - index; j++) {
+    for (int index = lenght - 1; index >= 0; index--) {
+        for (int j = 0; j < lenght - index - 1; j++) {
             cout << ' ';
         }
-        sleep_for(milliseconds(300));
+        sleep_for(milliseconds(1));
         cout << str[index] << endl;
     }
 
     sleep_for(milliseconds(1000));
 }
 
+/*--------------------------------------------------------*/
+
 void diagonalCruzadas(char *str)
 {
     int lenght = strlen(str);
+    char k;
+    int i;
+    int j;
 
-    for (int index = 0; str[index] != '\0' ; index++)
-    {
-        for (int j = 0; j < index / 2; j++) {
-            cout << ' ';
+    i = 1;
+
+    for (int index = 0; str[index] != '\0'; index++) {
+        for (j = 0; j < index; j++) {
+            cout << '_';
         }
-        sleep_for(milliseconds(300));
+        cout << str[index];
+
+        for (int n = lenght - 1; n > index; n -= 1) {
+            cout << '_';
+        }
+
         cout << str[index] << endl;
-        for (int j = 0; j <= (lenght - 1) / 2; j--)
-        {
-            cout << ' ';
-        }
-        
+        sleep_for(milliseconds(400));
     }
-        
+    cin >> k;
 }
+
+/*--------------------------------------------------------*/
 
 int main ()
 {
@@ -91,28 +106,42 @@ int main ()
 
         switch (escolha)
         {
-            case '1':           //Diagonal Esquerda 
-                system("cls");
+            case '1':                   //Diagonal Esquerda 
+                system("clear");
                 diagonalEsquerda(str);
-                escolha = ' ';
-            case '2':           //Diagonal Esquerda, Texto Invertido 
-                system("cls");
+                break;
+            case '2':                   //Diagonal Esquerda, Texto Invertido 
+                system("clear");
                 diagonalEsquerdaInvert(str);
-                escolha = ' ';
-            case '3':           //Diagonais Cruzadas 
-                system("cls");
+                break;
+            case '3':                   //Diagonais Cruzadas 
+                system("clear");
                 diagonalCruzadas(str);
-                escolha = ' ';
-            case '4':           //Em V
+                break;
+            case '4':                   //Em V
 
-            case '5':           //Deslizante
+            case '5':                   //Deslizante
 
-            case 'T' || 't':
-
+            //case 'T' || 't':
+                break;
             //case 'E' || 'e':
                 break;
             default:
                 cout << "opcao invalida" << endl;
+                sleep_for(milliseconds(1000));
+                break;
         }
     }
 }
+
+/*
+0J           XJ
+1 O      x-1 O
+
+
+      y
+-           +
+
+
+J            J
+*/

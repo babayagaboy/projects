@@ -14,7 +14,7 @@ using std::chrono::milliseconds;
 
 void showMenu()
 {
-    system("clear");
+    system("cls");
     cout << R"(
     ****************************************************
     *                                                  *
@@ -40,7 +40,7 @@ void diagonalEsquerda(char *str)
         for (int j = 0; j < index; j++) {
             cout << ' ';
         }
-        sleep_for(milliseconds(1)); // nao esquecer de aumentar o tempo
+        sleep_for(milliseconds(100)); // nao esquecer de aumentar o tempo
         cout << str[index] << endl;
     }
 
@@ -57,7 +57,7 @@ void diagonalEsquerdaInvert(char *str)
         for (int j = 0; j < lenght - index - 1; j++) {
             cout << ' ';
         }
-        sleep_for(milliseconds(1));
+        sleep_for(milliseconds(100));
         cout << str[index] << endl;
     }
 
@@ -81,12 +81,12 @@ void diagonalCruzadas(char *str)
         }
         cout << str[index];
 
-        for (int n = lenght - 1; n > index; n -= 1) {
+        for (int n = lenght - 1; n > index - 1; n -= 1) {
             cout << '_';
         }
 
         cout << str[index] << endl;
-        sleep_for(milliseconds(400));
+        sleep_for(milliseconds(10));
     }
     cin >> k;
 }
@@ -107,15 +107,15 @@ int main ()
         switch (escolha)
         {
             case '1':                   //Diagonal Esquerda 
-                system("clear");
+                system("cls");
                 diagonalEsquerda(str);
                 break;
             case '2':                   //Diagonal Esquerda, Texto Invertido 
-                system("clear");
+                system("cls");
                 diagonalEsquerdaInvert(str);
                 break;
             case '3':                   //Diagonais Cruzadas 
-                system("clear");
+                system("cls");
                 diagonalCruzadas(str);
                 break;
             case '4':                   //Em V

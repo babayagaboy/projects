@@ -1,13 +1,11 @@
 import random
 
 def caraoucoroa(lado):
-    rnd = random.randrange(0 , 10001)
+    rnd = random.randrange(0 , 2)
 
-    if (rnd <= 5000 and lado == 1):
+    if (rnd == 1 and lado == 1): # verifica se as duas escolhas foram iguais se nao perde
         print("ganhou")
-    elif (rnd > 5000 and lado == 2):
+    elif (rnd == 2 and lado == 2):
         print("ganhou")
-    elif (rnd == 10001):
-        print("decubriu um easter egg ; kys")
     else:
         print("perdeu")

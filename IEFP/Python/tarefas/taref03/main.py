@@ -2,10 +2,11 @@ import os
 from poi import*
 from corc import*
 from ppt import*
+from JogoDados import*
 from inicio import*
 
 while (True):
-    os.system('clear' if os.name == 'posix' else 'cls')
+    os.system('clear' if os.name == 'posix' else 'cls')  #da clear
 
     greatings()
 
@@ -14,6 +15,7 @@ while (True):
     1 - cara ou coroa
     2 - par ou impar                        
     3 - pedra papel tesoura
+    4 - dados
                         
     """)
 
@@ -31,11 +33,14 @@ while (True):
         print("")
         ppt = int(input("1 - pedra\n2 - papel\n3 - tesoura\n"))
         pedPapTesou(ppt)
+    elif escolha == "4":
+        print("")
+        jogoDados()
     else:
         print("erro")
 
     rpt = input("desja repetir?   (s/n): ").lower
 
-    if rpt == "n":
+    if rpt == "n":              #mecanismo de rodar o codigo de novo
         break
     

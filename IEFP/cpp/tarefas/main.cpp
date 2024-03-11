@@ -14,7 +14,7 @@ using std::chrono::milliseconds;
 
 void showMenu()
 {
-    system("cls");
+    system("clear");
     cout << R"(
     ****************************************************
     *                                                  *
@@ -107,15 +107,15 @@ int main ()
         switch (escolha)
         {
             case '1':                   //Diagonal Esquerda 
-                system("cls");
+                system("clear");
                 diagonalEsquerda(str);
                 break;
             case '2':                   //Diagonal Esquerda, Texto Invertido 
-                system("cls");
+                system("clear");
                 diagonalEsquerdaInvert(str);
                 break;
             case '3':                   //Diagonais Cruzadas 
-                system("cls");
+                system("clear");
                 diagonalCruzadas(str);
                 break;
             case '4':                   //Em V

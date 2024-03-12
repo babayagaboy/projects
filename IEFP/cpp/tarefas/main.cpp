@@ -5,8 +5,8 @@
 #include <string>
 #include <cstring>
 
-    //system("clear");
-    //system("cls");
+    //system("clear"); mac
+    //system("cls"); wind
 
 using namespace std;
 using std::this_thread::sleep_for;
@@ -14,7 +14,7 @@ using std::chrono::milliseconds;
 
 void showMenu()
 {
-    system("clear");
+    system("cls");
     cout << R"(
     ****************************************************
     *                                                  *
@@ -107,15 +107,15 @@ int main ()
         switch (escolha)
         {
             case '1':                   //Diagonal Esquerda 
-                system("clear");
+                system("cls");
                 diagonalEsquerda(str);
                 break;
             case '2':                   //Diagonal Esquerda, Texto Invertido 
-                system("clear");
+                system("cls");
                 diagonalEsquerdaInvert(str);
                 break;
             case '3':                   //Diagonais Cruzadas 
-                system("clear");
+                system("cls");
                 diagonalCruzadas(str);
                 break;
             case '4':                   //Em V

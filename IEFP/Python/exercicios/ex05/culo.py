@@ -10,6 +10,7 @@ print(list(filter(lambda x : x == 2 , range(1, 5))))
 print(impar)
 print(par)
 print(listaNum2)
+print(listaNum)
 
 
 print(f"\naaaa\n{list(filter(lambda x : x % 2 == 0, listaNum))}")

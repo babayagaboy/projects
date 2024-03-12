@@ -39,11 +39,11 @@ if estud == "s":
     user.nome_escola = input("nome da escola? ")
 
 pessoas = [
-    Pessoa("emma" , 2004 , "Russa"),
-    Pessoa("sandro" , 2003 , "Portugues"),
-    Pessoa("vasile" , 2002 , "Romeno"),
-    Pessoa("lepo" , 2001 , "Czheco"),
-    Pessoa("joane" , 2000 , "Francesa")
+    Pessoa("emma" , 2004 , "Russa", "g"),
+    Pessoa("sandro" , 2003 , "Portugues", "g"),
+    Pessoa("vasile" , 2002 , "Romeno", "g"),
+    Pessoa("lepo" , 2001 , "Czheco", "g"),
+    Pessoa("joane" , 2000 , "Francesa", "g")
 ]
 
 turma1 = []

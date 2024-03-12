@@ -1,25 +1,52 @@
+import os
+
+os.system('clear' if os.name == 'posix' else 'cls')  #da clear
+
 class Pessoa:
-    def __init__(self, nome, idade):
+    def __init__(self, nome, dataNasci, nacional):
         self.nome = nome
-        self.idd = idade
-    def calcular(self):
-        x = 10 - 5
+        self.idd = dataNasci
+        self.nacio = nacional
+    def key_nome(self):
+            return self.nome.upper()
+    def calAnos(self):
+        x = 2024 - self.idd
         return x
+    def imprim_nome(self):
+        print(f"Nome: {self.nome}")
+    def imprim_idd(self):
+        print(f"Idd: {self.calAnos()}")
+    def imprim_nacio(self):
+        print(f"Nac: {self.nacio}")
 
-aluno1 = Pessoa("ana" , 15)
-aluno2 = Pessoa("jonny" , 14)
-aluno3 = Pessoa("bruno" , 13)
-aluno4 = Pessoa("sandro" , 16)
-aluno5 = Pessoa("hugo" , 15)
-aluno6 = Pessoa("vasile" , 15)
-aluno7 = Pessoa("lepo" , 14)
-aluno8 = Pessoa("joane" , 15)
-aluno9 = Pessoa("felipa" , 14)
-
-user = Pessoa(" " , " ")
+user = Pessoa(" " , " " , " ")
 
 user.nome = input("como se chama? ")
-user.idd = input("quantos anos tem? ")
+user.idd = int(input("em que ano nasceu? "))
+user.nacio = input("qual a sua nacionalidade? ")
 
-print(f"bem vindo a turma ,{user.nome}")
-print(f"cal: {user.calcular()}")
+turma1 = [
+    Pessoa("emma" , 2004 , "Russa"),
+    Pessoa("sandro" , 2003 , "Portugues"),
+    Pessoa("vasile" , 2002 , "Romeno"),
+    Pessoa("lepo" , 2001 , "Czheco"),
+    Pessoa("joane" , 2000 , "Francesa")
+]
+
+turma1.append(user)
+
+turma1.sort(key = Pessoa.key_nome)
+
+turma1.sort(key = lambda self: self.nome)
+
+i = 1
+
+for obj in turma1:
+    print("=============================")
+    print(f"N: {i}")
+    obj.imprim_nome()
+    obj.imprim_idd()
+    obj.imprim_nacio()
+    print("")
+    i += 1
+

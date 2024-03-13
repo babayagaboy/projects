@@ -25,7 +25,7 @@ int main()
     int nb;
     int isPrime;
 
-    nb = 619;
+    nb = 120;
     isPrime = ft_is_prime(nb);
 
     if (isPrime == 1)

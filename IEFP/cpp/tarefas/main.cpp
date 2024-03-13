@@ -34,7 +34,7 @@ void showMenu()
 
 /*--------------------------------------------------------*/
 
-void diagonalEsquerda(char *str)
+void diagonalEsquerda(string str)
 {
     for (int index = 0; str[index] != '\0'; index++) {
         for (int j = 0; j < index; j++) {
@@ -49,7 +49,7 @@ void diagonalEsquerda(char *str)
 
 /*--------------------------------------------------------*/
 
-void diagonalEsquerdaInvert(char *str)
+void diagonalEsquerdaInvert(string str)
 {
     int lenght = strlen(str); // fazer proprio strlen() se nao for aceite
 
@@ -66,7 +66,7 @@ void diagonalEsquerdaInvert(char *str)
 
 /*--------------------------------------------------------*/
 
-void diagonalCruzadas(char *str)
+void diagonalCruzadas(string str)
 {
     int lenght = strlen(str);
     char k;
@@ -95,7 +95,9 @@ void diagonalCruzadas(char *str)
 
 int main ()
 {
-    char str[] = "JOSE MOURINHO";
+
+    string str;
+    cin >> str;
     char escolha;
 
     while (true)

@@ -5,6 +5,8 @@ import os
 
 os.system('clear' if os.name == 'posix' else 'cls')
 
+limite = 100
+
 nome = input("nome: ")
 idd = input("ano de nascimento: ")
 nacio = input("nacionalidade: ")
@@ -61,54 +63,32 @@ if y == 6:
 
 pessoas.append(user)
 
-index = 0
-while (index <= 100):
+index = 1
+while (index <= limite):
 
     y = random.randrange(1,7)
+
     if y == 1:
-        user = Estudante("","","","")
-        user.nome = random.choice(listNomes)
-        user.idd = random.randrange(2006 , 2015)
-        user.nacio = random.choice(listNacio)
-        user.nomeEsc = random.choice(listNomEsc)
+        pessoas[index] = Estudante(random.choice(listNomes),random.randrange(2006 , 2015),random.choice(listNacio),random.choice(listNomEsc))
 
     if y == 2:
-        user = Professor("","","","")
-        user.nome = random.choice(listNomes)
-        user.idd = random.randrange(1960 , 2000)
-        user.nacio = random.choice(listNacio)
-        user.materia = random.choice(listMat)
+        pessoas[index] = Professor(random.choice(listNomes),random.randrange(1960 , 2000),random.choice(listNacio),random.choice(listMat))
 
     if y == 3:
-        user = Cozinheiro("","","","")
-        user.nome = random.choice(listNomes)
-        user.idd = random.randrange(1960 , 2000)
-        user.nacio = random.choice(listNacio)
-        user.nomeRest = random.choice(listNomRest)
+        pessoas[index] = Cozinheiro(random.choice(listNomes),random.randrange(1960 , 2000),random.choice(listNacio),random.choice(listNomRest))
 
     if y == 4:
-        user = Programador("","","","")
-        user.nome = random.choice(listNomes)
-        user.idd = random.randrange(1960 , 2000)
-        user.nacio = random.choice(listNacio)
-        user.lingua = random.choice(listLing)
+        pessoas[index] = Programador(random.choice(listNomes),random.randrange(1960 , 2000),random.choice(listNacio),random.choice(listLing))
 
     if y == 5:
-        user = Politico("","","","")
-        user.nome = random.choice(listNomes)
-        user.idd = random.randrange(1960 , 2000)
-        user.nacio = random.choice(listNacio)
-        user.part = random.choice(listPartidos)
+        pessoas[index] = Politico(random.choice(listNomes),random.randrange(1960 , 2000),random.choice(listNacio),random.choice(listPartidos))
 
     if y == 6:
-        user = Militar("","","","")
-        user.nome = random.choice(listNomes)
-        user.idd = random.randrange(1960 , 2000)
-        user.nacio = random.choice(listNacio)
-        user.pat = random.choice(listPatentesMilitares)
+        pessoas[index] = Militar(random.choice(listNomes),random.randrange(1960 , 2000),random.choice(listNacio),random.choice(listPatentesMilitares))
 
+    index += 1
 
-    # pessoas.sort(key = lambda x : x.nome)
+    pessoas.sort(key = lambda x : x.nome)
 
 for obj in pessoas:
     print("=============================")

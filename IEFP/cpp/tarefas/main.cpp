@@ -5,16 +5,24 @@
 #include <string>
 #include <cstring>
 
-    //system("clear"); mac
-    //system("cls"); wind
+#ifdef _WIN32
+    const string clear = "cls";
+#else
+    const string clear = "clear";
+#endif
 
 using namespace std;
 using std::this_thread::sleep_for;
 using std::chrono::milliseconds;
 
+
+void clearScreen() 
+{
+    system(clear.c_str());
+}
+
 void showMenu()
 {
-    system("cls");
     cout << R"(
     ****************************************************
     *                                                  *
@@ -40,7 +48,7 @@ void diagonalEsquerda(string str)
         for (int j = 0; j < index; j++) {
             cout << ' ';
         }
-        sleep_for(milliseconds(100)); // nao esquecer de aumentar o tempo
+        sleep_for(milliseconds(100));
         cout << str[index] << endl;
     }
 
@@ -51,10 +59,10 @@ void diagonalEsquerda(string str)
 
 void diagonalEsquerdaInvert(string str)
 {
-    int lenght = strlen(str); // fazer proprio strlen() se nao for aceite
+    int length = size(str);
 
-    for (int index = lenght - 1; index >= 0; index--) {
-        for (int j = 0; j < lenght - index - 1; j++) {
+    for (int index = length - 1; index >= 0; index--) {
+        for (int j = 0; j < length - index - 1; j++) {
             cout << ' ';
         }
         sleep_for(milliseconds(100));
@@ -68,27 +76,29 @@ void diagonalEsquerdaInvert(string str)
 
 void diagonalCruzadas(string str)
 {
-    int lenght = strlen(str);
-    char k;
-    int i;
-    int j;
+    int length = size(str);
 
-    i = 1;
-
-    for (int index = 0; str[index] != '\0'; index++) {
-        for (j = 0; j < index; j++) {
-            cout << '_';
+    for (int i = 0; i < length; i++) {
+        for (int j = 0; j < length; j++) {
+            if (i == j || j == length - i - 1) 
+                cout << str[j];
+            else
+                cout << " ";
         }
-        cout << str[index];
-
-        for (int n = lenght - 1; n > index - 1; n -= 1) {
-            cout << '_';
-        }
-
-        cout << str[index] << endl;
-        sleep_for(milliseconds(10));
+        cout << endl;
+        this_thread::sleep_for(chrono::milliseconds(100));
     }
-    cin >> k;
+    
+    sleep_for(milliseconds(1000));
+}
+
+/*--------------------------------------------------------*/
+
+void diagonalEmV(string str)
+{
+    int length = size(str);
+    
+    sleep_for(milliseconds(1000));
 }
 
 /*--------------------------------------------------------*/
@@ -97,11 +107,13 @@ int main ()
 {
 
     string str;
+    cout << "escreva uma palavra: " << endl;
     cin >> str;
     char escolha;
 
     while (true)
     {
+        clearScreen();
         showMenu();
 
         cin >> escolha;
@@ -109,25 +121,29 @@ int main ()
         switch (escolha)
         {
             case '1':                   //Diagonal Esquerda 
-                system("cls");
+                clearScreen();
                 diagonalEsquerda(str);
                 break;
             case '2':                   //Diagonal Esquerda, Texto Invertido 
-                system("cls");
+                clearScreen();
                 diagonalEsquerdaInvert(str);
                 break;
             case '3':                   //Diagonais Cruzadas 
-                system("cls");
+                clearScreen();
                 diagonalCruzadas(str);
                 break;
             case '4':                   //Em V
-
+                clearScreen();
+                diagonalEmV(str);
+                break;
             case '5':                   //Deslizante
 
-            //case 'T' || 't':
+            case 'T':
+            case 't':
                 break;
-            //case 'E' || 'e':
-                break;
+            case 'E':
+            case 'e':
+                return 0;
             default:
                 cout << "opcao invalida" << endl;
                 sleep_for(milliseconds(1000));
@@ -137,13 +153,8 @@ int main ()
 }
 
 /*
-0J           XJ
-1 O      x-1 O
+NOTAS:
 
-
-      y
--           +
-
-
-J            J
+gustavo resolve o clearScreen()
+e o cin >> str;
 */

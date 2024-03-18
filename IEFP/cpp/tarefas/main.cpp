@@ -4,6 +4,7 @@
 #include <thread>
 #include <string>
 #include <cstring>
+using namespace std;
 
 #ifdef _WIN32
     const string clear = "cls";
@@ -11,7 +12,6 @@
     const string clear = "clear";
 #endif
 
-using namespace std;
 using std::this_thread::sleep_for;
 using std::chrono::milliseconds;
 
@@ -97,6 +97,7 @@ void diagonalCruzadas(string str)
 void diagonalEmV(string str)
 {
     int length = size(str);
+
     
     sleep_for(milliseconds(1000));
 }

@@ -86,7 +86,7 @@ void diagonalCruzadas(string str)
                 cout << " ";
         }
         cout << endl;
-        this_thread::sleep_for(chrono::milliseconds(100));
+        sleep_for(milliseconds(100));
     }
     
     sleep_for(milliseconds(1000));

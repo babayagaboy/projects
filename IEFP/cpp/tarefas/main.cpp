@@ -44,12 +44,12 @@ void showMenu()
 
 void diagonalEsquerda(string str)
 {
-    for (int index = 0; str[index] != '\0'; index++) {
-        for (int j = 0; j < index; j++) {
+    for (int i = 0; i < str.size(); i++) {
+        for (int j = 0; j < i; j++) {
             cout << ' ';
         }
         sleep_for(milliseconds(100));
-        cout << str[index] << endl;
+        cout << str[i] << endl;
     }
 
     sleep_for(milliseconds(1000));
@@ -78,7 +78,7 @@ void diagonalCruzadas(string str)
 {
     int length = size(str);
 
-    for (int i = 0; i < length; i++) {
+    for (int i = 0; i < str.size(); i++) {
         for (int j = 0; j < length; j++) {
             if (i == j || j == length - i - 1) 
                 cout << str[j];
@@ -97,7 +97,18 @@ void diagonalCruzadas(string str)
 void diagonalEmV(string str)
 {
     int length = size(str);
+    int k = length;
 
+    for (int i = 0; i < length; i++) {
+        for (int j = 0; j < length; j++) {
+            if (i == j || j == length - i) 
+                cout << str[j];
+            else
+                cout << " ";
+        }
+        cout << endl;
+        sleep_for(milliseconds(100));
+    }
     
     sleep_for(milliseconds(1000));
 }
@@ -107,9 +118,9 @@ void diagonalEmV(string str)
 int main ()
 {
 
-    string str;
+    string str = "ALBERTO";
     cout << "escreva uma palavra: " << endl;
-    cin >> str;
+    // cin >> str;
     char escolha;
 
     while (true)
@@ -158,4 +169,13 @@ NOTAS:
 
 gustavo resolve o clearScreen()
 e o cin >> str;
+
+A    T 
+ L  R  
+  BE   
+  BE   
+ L  R  
+A    T 
+      O
+
 */

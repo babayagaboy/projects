@@ -61,12 +61,12 @@ void diagonalEsquerdaInvert(string str)
 {
     int length = size(str);
 
-    for (int index = length - 1; index >= 0; index--) {
-        for (int j = 0; j < length - index - 1; j++) {
+    for (int i = length - 1; i >= 0; i--) {
+        for (int j = 0; j < length - i - 1; j++) {
             cout << ' ';
         }
         sleep_for(milliseconds(100));
-        cout << str[index] << endl;
+        cout << str[i] << endl;
     }
 
     sleep_for(milliseconds(1000));
@@ -101,10 +101,11 @@ void diagonalEmV(string str)
 
     for (int i = 0; i < length; i++) {
         for (int j = 0; j < length; j++) {
-            if (i == j || j == length - i) 
-                cout << str[j];
+            if (i == j || j == k)
+                    cout << str[k];
             else
                 cout << " ";
+            k--;
         }
         cout << endl;
         sleep_for(milliseconds(100));

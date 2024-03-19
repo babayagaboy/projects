@@ -1,6 +1,7 @@
 {
   "version": "0.2.0",
   "configurations": [
+
     {
       "type": "java",
       "name": "a",
@@ -15,8 +16,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/VC/projects/IEFP/cpp/tarefas",
-      "program": "c:/VC/projects/IEFP/cpp/tarefas/build/Debug/outDebug",
+      "cwd": "c:/VC/projects",
+      "program": "c:/VC/projects",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

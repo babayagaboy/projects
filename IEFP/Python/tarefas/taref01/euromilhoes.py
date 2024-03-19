@@ -17,6 +17,12 @@ rnd = 0
 semanas = 0
 pontos = 0
 jogosGanhos = 0
+primeiroPremio = 0
+segundoPremio = 0
+terceiroPremio = 0
+quartoPremio = 0
+quintoPremio = 0
+dinheiroTotal = 0
 
 def euromilhoes():
     euroEstrelas[0] = random.randrange(1 , 13)
@@ -35,7 +41,7 @@ def entradaEuromilhoes():
     estrelas[0] = num[0] if num[0] > 0 and num[0] <= 12 else None # recebe os dois valores das estrelas
     estrelas[1] = num[1] if num[1] > 0 and num[1] <= 12 else None
 
-    entrada = input("digite dois numeros entre 1 : 50: ")
+    entrada = input("digite cinco numeros entre 1 : 50: ")
     num = [int (x) for x in entrada.split()]
 
     numeros[0] = num[0] if num[0] > 0 and num[0] <= 50 else None # recebe os cinco valores dos numeros
@@ -51,8 +57,8 @@ numeros.sort()
 
 print()
 
-# while (pontos != 25):
-while (semanas < 100000):
+while (pontos != 25):
+# while (semanas < 100000):
 
     pontos = 0
 
@@ -70,19 +76,29 @@ while (semanas < 100000):
     if (pontos == 21):
         print(Color.GREEN + "ganhou o quinto premio de 100 euros, o euromilhoes era: " + ', '.join(map(str, euroEstrelas)) + " | " + ', '.join(map(str , euroNumeros)) + Color.END)
         jogosGanhos += 1
+        quintoPremio += 1
+        dinheiroTotal += 100
     elif (pontos == 22):
         print(Color.GREEN + "ganhou o quarto premio de 1,000 euros, o euromilhoes era: " + ', '.join(map(str, euroEstrelas)) + " | " + ', '.join(map(str , euroNumeros)) + Color.END)
         jogosGanhos += 1
+        quartoPremio += 1
+        dinheiroTotal += 1000
     elif (pontos == 23):
         print(Color.GREEN + "ganhou o terceiro premio de 10,000 euros, o euromilhoes era: " + ', '.join(map(str, euroEstrelas)) + " | " + ', '.join(map(str , euroNumeros)) + Color.END)
         jogosGanhos += 1
+        terceiroPremio += 1
+        dinheiroTotal += 10000
     elif (pontos == 24):
         print(Color.GREEN + "ganhou o segundo premio de 100,000 euros, o euromilhoes era: " + ', '.join(map(str, euroEstrelas)) + " | " + ', '.join(map(str , euroNumeros)) + Color.END)
         jogosGanhos += 1
+        segundoPremio += 1
+        dinheiroTotal += 100000
     elif (pontos == 25):
         print(Color.BLUE + "ganhou o euromilhoes premio de 10,000,000 euros, o euromilhoes era: " + ', '.join(map(str, euroEstrelas)) + " | " + ', '.join(map(str , euroNumeros)) + Color.END)
         jogosGanhos += 1
-    else:
+        primeiroPremio += 1
+        dinheiroTotal += 10000000
+    else:       
         print(Color.RED + "perdeu, o euromilhoes era: " + ', '.join(map(str, euroEstrelas)) + " | " + ', '.join(map(str, euroNumeros)) + Color.END)
     semanas += 1
 
@@ -91,4 +107,12 @@ if (jogosGanhos != 0):
     print("\nGanhou " , jogosGanhos , " vezes")
 else:
     print("\nnao ganhou nenhuma vez")
-print(semanas, " tentativas")
+print(semanas, " tentativas\n")
+
+print(primeiroPremio, " vezes o primeiro premio")
+print(segundoPremio, " vezes o segundo premio")
+print(terceiroPremio, " vezes o terceiro premio")
+print(quartoPremio, " vezes o quarto premio")
+print(quintoPremio, " vezes o quinto premio")
+
+print(dinheiroTotal, " dinheiros")

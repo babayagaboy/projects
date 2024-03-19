@@ -96,21 +96,22 @@ void diagonalCruzadas(string str)
 
 void diagonalEmV(string str)
 {
-    int length = size(str);
-    int k = length;
+    int length = str.size();
+    int k = (length - 1) * 2;
 
-    for (int i = 0; i < length; i++) {
-        for (int j = 0; j < length; j++) {
-            if (i == j || j == k)
-                    cout << str[k];
-            else
-                cout << " ";
-            k--;
-        }
-        cout << endl;
+    for (int i = 0; i < length; i++) 
+    {
+        if (i != length - 1)
+            cout << string(i, ' ') << str[i] << string(k, ' ') << str[length - i - 1] << endl;
+
+        else
+            cout << string(i, ' ') << str[i] << string(k, ' ') << str[length - i - 1] << endl;
+
+        k -= 2;
+
         sleep_for(milliseconds(100));
     }
-    
+
     sleep_for(milliseconds(1000));
 }
 

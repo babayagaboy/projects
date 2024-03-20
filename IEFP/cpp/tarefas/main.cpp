@@ -31,8 +31,9 @@ void showMenu()
     *    1 - Diagonal Esquerda                         *
     *    2 - Diagonal Esquerda, Texto Invertido        *
     *    3 - Diagonais Cruzadas                        *
-    *    4 - Em V                                      *
-    *    5 - Deslizante                                *
+    *    4 - Diagonal Direita, Palavras Ordem Inversa  *
+    *    5 - Em V                                      *
+    *    6 - Deslizante                                *
     *    T - Todos                                     *
     *    E - Encerrar                                  *
     *                                                  *
@@ -96,6 +97,13 @@ void diagonalCruzadas(string str)
 
 /*--------------------------------------------------------*/
 
+void diagonalDirOrdInvert(string str)
+{
+
+}
+
+/*--------------------------------------------------------*/
+
 void diagonalEmV(string str)
 {
     int length = str.size();
@@ -119,10 +127,17 @@ void diagonalEmV(string str)
 
 /*--------------------------------------------------------*/
 
+void textDeslizante(string str)
+{
+
+}
+
+/*--------------------------------------------------------*/
+
 int main ()
 {
 
-    string str = "ALBERTO";
+    string str = "JOSE MOURINHO";
     cout << "escreva uma palavra: " << endl;
     // cin >> str;
     char escolha;
@@ -148,13 +163,27 @@ int main ()
                 clearScreen();
                 diagonalCruzadas(str);
                 break;
-            case '4':                   //Em V
+            case '4':                   
+                clearScreen();
+                diagonalDirOrdInvert(str);
+                break;
+            case '5':                    //Em V
                 clearScreen();
                 diagonalEmV(str);
                 break;
-            case '5':                   //Deslizante
-
+            case '6':                    //Deslizante
+                clearScreen();
+                textDeslizante(str);
+                break;
             case 'T':
+                clearScreen();
+                diagonalEsquerda(str);
+                diagonalEsquerdaInvert(str);
+                diagonalCruzadas(str);
+                diagonalDirOrdInvert(str);
+                diagonalEmV(str);
+                textDeslizante(str);
+                break;
             case 't':
                 break;
             case 'E':
@@ -170,16 +199,5 @@ int main ()
 
 /*
 NOTAS:
-
-gustavo resolve o clearScreen()
-e o cin >> str;
-
-A    T 
- L  R  
-  BE   
-  BE   
- L  R  
-A    T 
-      O
 
 */

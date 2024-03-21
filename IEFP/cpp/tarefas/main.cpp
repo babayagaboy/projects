@@ -84,7 +84,7 @@ void diagonalCruzadas(string str)
     for (int i = 0; i < str.size(); i++) {
         for (int j = 0; j < length; j++) {
             if (i == j || j == length - i - 1) 
-                cout << str[j];
+                cout << str[i];
             else
                 cout << " ";
         }

@@ -1,7 +1,7 @@
 import csv
 import os
 
-from user_signin import*
+from user_class import*
 
 escolha = input("""
 
@@ -11,8 +11,10 @@ escolha = input("""
 """)
 
 if escolha == '1':
-    pass
+    user = User("" , "")
+    if(user.logIn()):
+        print(f"welcome back, {user.username}!")
 
 if escolha == '2':
-    user = UserSign("" , "")
+    user = User("" , "")
     user.signIn()

@@ -17,6 +17,8 @@ class User:
             if self.IsUsernameValid(temp_username):
                 if self.IsPassWordValid(temp_password):
                     self.save_to_csv(temp_username, temp_password)
+                    temp_username.username = temp_username
+                    temp_username.password = temp_password
                     print("User created successfully.")
                     break
                 else:
@@ -50,5 +52,13 @@ class User:
                         return False
         return True
     
-    def logIn(self , username , password):
-        pass
+    def logIn(self):
+        temp_username = input("Username: ")
+        temp_password = input("Password: ")
+        
+        with open('logged_in.csv', mode='r', newline='') as file:
+            reader = csv.reader(file)
+            for row in reader:
+                if row and row[0] == temp_username and row[1] == temp_password:
+                    return True
+        return False

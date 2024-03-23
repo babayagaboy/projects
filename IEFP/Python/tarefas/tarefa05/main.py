@@ -12,8 +12,12 @@ escolha = input("""
 
 if escolha == '1':
     user = User("" , "")
-    if(user.logIn()):
-        print(f"welcome back, {user.username}!")
+    while(True):
+        if(user.logIn()):
+            print(f"welcome back, {user.username}!")
+            break
+        else:
+            print("username ou password errados")
 
 if escolha == '2':
     user = User("" , "")

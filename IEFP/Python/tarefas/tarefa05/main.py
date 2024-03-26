@@ -14,7 +14,7 @@ if escolha == '1':
     user = User("" , "")
     while(True):
         if(user.logIn()):
-            print(f"welcome back, {user.username}!")
+            print(f"welcome back!")
             break
         else:
             print("username ou password errados")

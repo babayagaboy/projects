@@ -129,7 +129,20 @@ void diagonalEmV(string str)
 
 void textDeslizante(string str)
 {
+    int limit = 10;
 
+    while (true)
+    {
+        for (int i = 0; i < limit - str.size(); i++)
+        {
+            clearScreen();
+            for (int j = 0; j < i; j++)
+            {
+                cout << " ";
+            }
+            cout << str;
+        }
+    }
 }
 
 /*--------------------------------------------------------*/

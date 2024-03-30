@@ -62,7 +62,7 @@ void diagonalEsquerda(string str)
 
 void diagonalEsquerdaInvert(string str)
 {
-    int length = size(str);
+    int length = str.size();
 
     for (int i = length - 1; i >= 0; i--) {
         for (int j = 0; j < length - i - 1; j++) {
@@ -79,7 +79,7 @@ void diagonalEsquerdaInvert(string str)
 
 void diagonalCruzadas(string str)
 {
-    int length = size(str);
+    int length = str.size();
 
     for (int i = 0; i < str.size(); i++) {
         for (int j = 0; j < length; j++) {

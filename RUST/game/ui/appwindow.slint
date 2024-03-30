@@ -1,0 +1,51 @@
+import { Button, VerticalBox, LineEdit } from "std-widgets.slint";
+export component AppWindow inherits Window {
+
+    in property <string> results: "";
+    callback tax_calc(string);
+
+    background: #313e50;
+    GridLayout {
+        padding: 50px;
+        spacing: 25px;
+        Row {
+            Text {
+                text: "Enter Total Income:";
+                horizontal-alignment: center;
+                font-size: 14px;
+                font-weight: 900;
+            }
+        }
+
+        Row {
+            income := LineEdit {
+                horizontal-alignment: center;
+                placeholder-text: "Enter Value";
+                font-size: 14px;
+            }
+        }
+
+        Row {
+            Button {
+                text: "Calculate";
+                primary: true;
+                clicked => {tax_calc(income.text)}
+            }
+        }
+
+        Row {
+            VerticalBox {
+                Rectangle {
+                    height: 100px;
+                    background: white;
+                    Text {
+                        color: black;
+                        font-size: 16px;
+                        font-weight: 500;
+                        text: root.results;
+                    }
+                }
+            }
+        }
+    }
+}

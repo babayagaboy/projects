@@ -30,7 +30,7 @@ class User:
         filename = 'logged_in.csv'
         with open(filename, mode='a', newline='') as file:
             writer = csv.writer(file)
-            writer.writerow([temp_username, temp_password])
+            writer.writerow([temp_username, temp_password,])
 
     def IsPassWordValid(self , temp_password):
         if len(temp_password) < 8 or len(temp_password) > 12:

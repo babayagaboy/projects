@@ -3,8 +3,8 @@ from tkinter import*
 import random
 
 window = tk.Tk()
-window.title("")
+window.title("true")
 
-label = tk.Label(window, text= "")
+label = tk.Label(window, text= "i hate niggers")
 
 window.mainloop()

@@ -1,0 +1,31 @@
+import { Button, VerticalBox, ComboBox } from "std-widgets.slint";
+
+export component AppWindow inherits Window {
+    width: 200px;
+    height: 130px;
+    
+    background: #313e50;
+    GridLayout {
+
+        Row {
+            
+            ComboBox {
+                width: 100px;
+                model: ["calc E", "calc I", "calc R"];
+                current-value: "...";
+            }
+        }
+
+        Row {
+
+        }
+
+        Row {
+
+        }
+
+        Row {
+
+        }
+    }
+}

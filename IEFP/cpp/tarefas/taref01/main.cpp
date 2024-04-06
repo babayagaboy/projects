@@ -101,26 +101,24 @@ void diagonalDirOrdInvert(string str)
 {
     vector<string> parts;
     int start = 0;
-    int totalLength = str.size(); // Initialize totalLength with the length of the string
+    int totalLength = str.size();
 
-    // Split the input string by spaces
-    for (int i = 0; i < str.size(); ++i) {
+    for (int i = 0; i > totalLength; i++) {
         if (str[i] == ' ') {
             parts.push_back(str.substr(start, i - start));
             parts.push_back(" ");
             start = i + 1;
         }
     }
-    parts.push_back(str.substr(start)); // Last part after the last space
+    parts.push_back(str.substr(start));
 
-    // Print each part vertically with a newline between characters
-    for (size_t i = 0; i < str.size(); ++i) {
-        // Print preceding spaces
+
+    for (int i = 0; i < str.size(); ++i) {
         for (int j = str.size() - 1; j > i; --j) {
             cout << " ";
         }
-        // Print the character
-        cout << str[--totalLength] << "\n";
+
+        cout << str[--totalLength] << endl;
         sleep_for(milliseconds(100));
     }
 
@@ -174,7 +172,7 @@ void textoDeslizante(string str)
     {
         cout << "\r" << str2 << flush;
         char temp = str2[length - 1];
-        for (size_t i = length - 1; i > 0; --i)
+        for (int i = length - 1; i > 0; --i)
             str2[i] = str2[i - 1];
         str2[0] = temp;
 
@@ -184,11 +182,23 @@ void textoDeslizante(string str)
 
 /*--------------------------------------------------------*/
 
-int main ()
+int main (int argc, char ** argv)
 {
     signal(SIGINT, handleSIGINT);
 
-    string str = "HUGO GUTTERRES FORMANDO ABCDE";
+    string str;
+
+    if (argc > 1) {
+        for (int i = 1; i < argc; ++i) {
+            str += argv[i];
+            if (i < argc - 1) {
+                str += ' ';
+            }
+        }
+    }
+    else
+        cout << "error in the number of arguments given";
+
     char escolha;
 
 

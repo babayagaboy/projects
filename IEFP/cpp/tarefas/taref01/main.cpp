@@ -5,16 +5,16 @@
 #include <string>
 #include <cstring>
 #include <csignal>
+#include <vector>
 using namespace std;
+using namespace std::this_thread;
+using namespace std::chrono;
 
 #ifdef _WIN32
     const string clear = "cls";
 #else
     const string clear = "clear";
 #endif
-
-using std::this_thread::sleep_for;
-using std::chrono::milliseconds;
 
 void clearScreen() 
 {
@@ -99,33 +99,32 @@ void diagonalCruzadas(string str)
 
 void diagonalDirOrdInvert(string str)
 {
-    size_t divis = str.find(' ');
-    string firstHalf = str.substr(divis + 1);
-    string secondHalf = str.substr(0, divis);
+    vector<string> parts;
+    int start = 0;
+    int totalLength = str.size(); // Initialize totalLength with the length of the string
 
-    int length1 = firstHalf.size();
-    int length2 = secondHalf.size();
-
-    int i = 0; 
-    int j = 0;
-
-    // Imprime a primeira metade da string na diagonal
-    for ( i = 0; i < length1 + 1; ++i) {
-        for ( j = 0; j < length1 + length2 - i + 1; ++j) {
-            cout << ' ';
+    // Split the input string by spaces
+    for (int i = 0; i < str.size(); ++i) {
+        if (str[i] == ' ') {
+            parts.push_back(str.substr(start, i - start));
+            parts.push_back(" ");
+            start = i + 1;
         }
-        cout << firstHalf[i] << endl;
+    }
+    parts.push_back(str.substr(start)); // Last part after the last space
+
+    // Print each part vertically with a newline between characters
+    for (size_t i = 0; i < str.size(); ++i) {
+        // Print preceding spaces
+        for (int j = str.size() - 1; j > i; --j) {
+            cout << " ";
+        }
+        // Print the character
+        cout << str[--totalLength] << "\n";
         sleep_for(milliseconds(100));
     }
 
-     for ( i = 0; i < length2; ++i) {
-        for ( j = 0; j < length2 - i; ++j) {
-            cout << ' ';
-            }
-        cout << secondHalf[i] << endl;
-        sleep_for(milliseconds(100));
-     }
-     sleep_for(milliseconds(1000));
+    sleep_for(milliseconds(1000));
 }
 
 /*--------------------------------------------------------*/
@@ -189,7 +188,7 @@ int main ()
 {
     signal(SIGINT, handleSIGINT);
 
-    string str = "HUGO GUTTERRES FORMANDO";
+    string str = "HUGO GUTTERRES FORMANDO ABCDE";
     char escolha;
 
 

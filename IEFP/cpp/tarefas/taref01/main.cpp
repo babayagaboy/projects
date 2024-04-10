@@ -100,25 +100,30 @@ void diagonalCruzadas(string str)
 void diagonalDirOrdInvert(string str)
 {
     vector<string> parts;
+    string reverse_str;
     int start = 0;
     int totalLength = str.size();
 
-    for (int i = 0; i > totalLength; i++) {
+    for (int i = 0; i < totalLength; ++i) {
         if (str[i] == ' ') {
             parts.push_back(str.substr(start, i - start));
-            parts.push_back(" ");
             start = i + 1;
         }
     }
 
     parts.push_back(str.substr(start));
+    
+    for(int i = parts.size() - 1; i >= 0; --i) {
+        reverse_str += parts[i];
+        reverse_str += " ";
+    }
 
     for (int i = 0; i < str.size(); ++i) {
         for (int j = str.size() - 1; j > i; --j) {
             cout << " ";
         }
 
-        cout << str[--totalLength] << endl;
+        cout << reverse_str[i] << endl;
         sleep_for(milliseconds(100));
     }
 
@@ -191,8 +196,9 @@ int main (int argc, char ** argv)
             }
         }
     }
+
     else
-        cout << "error in the number of arguments given";
+        cout << "ERRO NO NUMERO DE ARGUMENTOS";
 
     char escolha;
 

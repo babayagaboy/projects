@@ -99,15 +99,37 @@ void diagonalCruzadas(string str)
 
 void diagonalDirOrdInvert(string str)
 {
+<<<<<<< HEAD
     int start = 0;
     int totalLength = str.size();
 
+=======
+    vector<string> parts;
+    string reverse_str;
+    int start = 0;
+    int totalLength = str.size();
+
+    for (int i = 0; i < totalLength; ++i) {
+        if (str[i] == ' ') {
+            parts.push_back(str.substr(start, i - start));
+            start = i + 1;
+        }
+    }
+
+    parts.push_back(str.substr(start));
+    
+    for(int i = parts.size() - 1; i >= 0; --i) {
+        reverse_str += parts[i];
+        reverse_str += " ";
+    }
+
+>>>>>>> refs/remotes/origin/main
     for (int i = 0; i < str.size(); ++i) {
         for (int j = str.size() - 1; j > i; --j) {
             cout << " ";
         }
 
-        cout << str[--totalLength] << endl;
+        cout << reverse_str[i] << endl;
         sleep_for(milliseconds(100));
     }
 
@@ -123,12 +145,7 @@ void diagonalEmV(string str)
 
     for (int i = 0; i < length; i++) 
     {
-        if (i != length - 1)
-            cout << string(i, ' ') << str[i] << string(k, ' ') << str[length - i - 1] << endl;
-
-        else
-            cout << string(i, ' ') << str[i] << string(k, ' ') << str[length - i - 1] << endl;
-
+        cout << string(i, ' ') << str[i] << string(k, ' ') << str[length - i - 1] << endl;
         k -= 2;
 
         sleep_for(milliseconds(100));
@@ -185,8 +202,9 @@ int main (int argc, char ** argv)
             }
         }
     }
+
     else
-        cout << "error in the number of arguments given";
+        cout << "ERRO NO NUMERO DE ARGUMENTOS";
 
     char escolha;
 

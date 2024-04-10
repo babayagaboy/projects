@@ -1,11 +1,29 @@
 import tkinter as tk
+import string
+import random
 import csv
+
+chars = " " + string.punctuation + string.digits + string.ascii_letters
+chars = list(chars)
+key = chars.copy()
+random.seed(42)
+random.shuffle(key)
+
+def encrypt(password):
+
+    encrypt_password = ""
+
+    for letter in password:
+        i = chars.index(letter)
+        encrypt_password += key[i]
+
+    return encrypt_password
 
 def check_credentials(username, password):
     with open('credentials.csv', mode='r') as file:
         reader = csv.reader(file)
         for row in reader:
-            if row[0] == username and row[1] == password:
+            if row[0] == username and row[1] == encrypt(password):
                 return True
     return False
 
@@ -61,7 +79,7 @@ def ft_sign_in_window():
 
     def save_credentials():
         new_username = sign_login_entry.get()
-        new_password = sign_password_entry.get()
+        new_password = encrypt(sign_password_entry.get())
         
         with open('credentials.csv', mode='a', newline='') as file:
             writer = csv.writer(file)

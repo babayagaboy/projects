@@ -99,19 +99,8 @@ void diagonalCruzadas(string str)
 
 void diagonalDirOrdInvert(string str)
 {
-    vector<string> parts;
     int start = 0;
     int totalLength = str.size();
-
-    for (int i = 0; i > totalLength; i++) {
-        if (str[i] == ' ') {
-            parts.push_back(str.substr(start, i - start));
-            parts.push_back(" ");
-            start = i + 1;
-        }
-    }
-    parts.push_back(str.substr(start));
-
 
     for (int i = 0; i < str.size(); ++i) {
         for (int j = str.size() - 1; j > i; --j) {
@@ -223,7 +212,7 @@ int main (int argc, char ** argv)
                 clearScreen();
                 diagonalCruzadas(str);
                 break;
-            case '4':                   
+            case '4':                   //Diagonal Direcao, Ordem Invertida
                 clearScreen();
                 diagonalDirOrdInvert(str);
                 break;

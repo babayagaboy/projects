@@ -110,8 +110,8 @@ void diagonalDirOrdInvert(string str)
             start = i + 1;
         }
     }
-    parts.push_back(str.substr(start));
 
+    parts.push_back(str.substr(start));
 
     for (int i = 0; i < str.size(); ++i) {
         for (int j = str.size() - 1; j > i; --j) {
@@ -134,12 +134,7 @@ void diagonalEmV(string str)
 
     for (int i = 0; i < length; i++) 
     {
-        if (i != length - 1)
-            cout << string(i, ' ') << str[i] << string(k, ' ') << str[length - i - 1] << endl;
-
-        else
-            cout << string(i, ' ') << str[i] << string(k, ' ') << str[length - i - 1] << endl;
-
+        cout << string(i, ' ') << str[i] << string(k, ' ') << str[length - i - 1] << endl;
         k -= 2;
 
         sleep_for(milliseconds(100));

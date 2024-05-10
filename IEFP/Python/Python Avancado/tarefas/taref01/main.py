@@ -2,6 +2,15 @@ import tkinter as tk
 import string
 import random
 import csv
+import sqlite3
+
+conn = sqlite3.connect('credencials.db')
+cursor = conn.cursor()
+cursor.execute('''CREATE TABLE IF NOT EXISTS users (
+                    id INTEGER PRIMARY KEY,
+                    username TEXT NOT NULL,
+                    password TEXT NOT NULL
+                )''') 
 
 chars = " " + string.punctuation + string.digits + string.ascii_letters
 chars = list(chars)
@@ -20,12 +29,21 @@ def encrypt(password):
     return encrypt_password
 
 def check_credentials(username, password):
-    with open('credentials.csv', mode='r') as file:
-        reader = csv.reader(file)
-        for row in reader:
-            if row[0] == username and row[1] == encrypt(password):
-                return True
-    return False
+
+    cursor.execute("SELECT * FROM users WHERE username = ? AND password = ?", (username, encrypt(password)))
+    row = cursor.fetchone()
+    
+    if row:
+        return True
+    else:
+        return False
+    
+    # with open('credentials.csv', mode='r') as file:
+    #     reader = csv.reader(file)
+    #     for row in reader:
+    #         if row[0] == username and row[1] == encrypt(password):
+    #             return True
+    # return False
 
 def ft_pos_login_window(login_entry, password_entry):
     username = login_entry.get()
@@ -80,10 +98,14 @@ def ft_sign_in_window():
     def save_credentials():
         new_username = sign_login_entry.get()
         new_password = encrypt(sign_password_entry.get())
+
+        user = (new_username , new_password)
         
-        with open('credentials.csv', mode='a', newline='') as file:
-            writer = csv.writer(file)
-            writer.writerow([new_username, new_password])
+        cursor.execute('INSERT INTO users (username, password) VALUES (?, ?)', user)
+
+        # with open('credentials.csv', mode='a', newline='') as file:
+        #     writer = csv.writer(file)
+        #     writer.writerow([new_username, new_password])
         
         sign_window.destroy()
 
@@ -100,5 +122,7 @@ to_login_button.grid(row=3, column=2)
 
 to_sign_button = tk.Button(window, text="SIGN IN", command=ft_sign_in_window)
 to_sign_button.grid(row=3, column=3)
+
+conn.commit()
 
 window.mainloop()

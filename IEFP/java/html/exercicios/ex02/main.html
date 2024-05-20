@@ -1,0 +1,177 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" 
+    pageEncoding="utf-8"%>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Projeto UM</title>
+    <style>
+        .btn-color {
+            background-color: #0e1c36;
+            color: #fff;
+        }
+        .profile-image-pic {
+            height: 200px;
+            width: 200px;
+            object-fit: cover;
+        }
+        .cardbody-color {
+            background-color: #ebf2fa;
+        }
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h2 class="text-center text-dark mt-5">PROJETO UM</h2>
+                <div class="text-center mb-5 text-dark">JAVA 2024</div>
+
+                <div class="card my-5">
+                    <form class="card-body cardbody-color p-lg-5" action="mostrarDados.jsp" method="POST">
+                        <div class="text-center">
+                            <img src="imagens/iefp-logo.png" class="img-fluid profile-image-pic img-thumbnail rounded-circle my-3" width="200px" alt="IEFP">
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" name="nomeCompleto" placeholder="Nome Completo">
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" name="genero" placeholder="Género">
+                        </div>
+                        <div class="mb-3">
+                            <input type="number" class="form-control" name="idade" placeholder="Idade" min="1">
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-color px-5 mb-5 w-100">Submeter</button>
+                        </div>
+                        <div id="emailHelp" class="form-text text-center mb-5 text-dark">
+                            <a href="#" class="text-dark fw-bold">MOSTRAR DADOS</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
+
+<!-- Criar base de dados Clientes e criar a tabela cliente -->
+CREATE TABLE cliente (
+    idCliente int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    nomeCliente varchar(40) NOT NULL,
+    emailCliente varchar(60) NOT NULL,
+    profissaoCliente varchar(40) NOT NULL
+);
+
+<!-- Dados dos clientes -->
+insert into cliente(nomeCliente,emailCliente,profissaoCliente)
+values ('Célia Duarte', 'celiaduarte@gmail.com','Formadora'),
+('Luis Costa','luiscosta@luiscosta.com','RH'),
+('Teresa Mendes','teresa@teresamendes.com','RH'),
+('Joana Santos','geral@joanasantos.com','Contabilista'),
+('Jorge Santos', 'geral@jorgesantos.com', 'Programador'),
+('Cátia Monge', 'geral@catiamonge.com', 'Programadora');
+
+<!-- Design Patterns -->
+https://www.digitalocean.com/community/tutorials/gangs-of-four-gof-design-patterns
+// https://refactoring.guru/pt-br/design-patterns
+
+<!-- Emmet abbreviations -->
+https://emmet.io/
+https://docs.emmet.io/cheat-sheet/
+
+<!-- HTML cheatsheet dinâmica -->
+https://htmlcheatsheet.com/
+
+<!-- Connector -->
+Copiar o ficheiro mysql-connector-j-8.0.32.jar para a pasta webapp\WEB-INF\lib
+
+<!-- clientes.jsp -->
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ page import="java.sql.*, javax.sql.*"%>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        .btn-color {
+            background-color: #0e1c36;
+            color: #fff;
+        }
+        .profile-image-pic {
+            height: 200px;
+            width: 200px;
+            object-fit: cover;
+        }
+        .cardbody-color {
+            background-color: #ebf2fa;
+        }
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="home.jsp">CLIENTES</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item active"><a class="nav-link" href="index.jsp">Home <span class="sr-only">(current)</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="clientes.jsp">Clientes<span class="sr-only">(current)</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="profissaoClientes.jsp">Clientes | Profissão</a></li>
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Outras opções em breve </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="#">Listar por domínio de e-mail</a>
+                            <a class="dropdown-item" href="#">Listar por nome</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <section>
+        <h1 style="text-align: center; padding: 10px">TABELA DE CLIENTES</h1>
+        <table class="table" class="table-stripped">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">ID Cliente</th>
+                    <th scope="col">Nome Cliente</th>
+                    <th scope="col">E-mail Cliente</th>
+                    <th scope="col">Profissão Cliente</th>
+                </tr>
+            </thead>
+            <tbody>
+                <%
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                Connection ligacao = DriverManager.getConnection("jdbc:mysql://localhost:3306/Clientes", "root", "");
+                String consulta = "select * from cliente";
+                Statement st = ligacao.createStatement();
+                ResultSet resultado = st.executeQuery(consulta);
+                while (resultado.next()) {
+                    out.print("<tr>");
+                    out.print("<td>" + resultado.getString("idCliente") + "</td>");
+                    out.print("<td>" + resultado.getString("nomeCliente") + "</td>");
+                    out.print("<td>" + resultado.getString("emailCliente") + "</td>");
+                    out.print("<td>" + resultado.getString("profissaoCliente") + "</td></tr>");
+                }
+                %>
+            </tbody>
+        </table>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

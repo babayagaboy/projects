@@ -14,7 +14,7 @@ int ft_is_prime(int nb)
     while (div <= nb / 2)
     {
         if (nb % div == 0)
-            return (0);
+            return (div);
         div++;
     }
     return (1);
@@ -25,12 +25,12 @@ int main()
     int nb;
     int isPrime;
 
-    nb = 120;
+    nb = 104659;
     isPrime = ft_is_prime(nb);
 
     if (isPrime == 1)
         printf("%d = primo" , nb);
-    if (isPrime == 0)
-        printf("%d = nao primo" , nb);
+    if (isPrime != 1)
+        printf("%d = nao primo foi divisivel por: %d\n" , nb, isPrime);
     return (0);  
 }

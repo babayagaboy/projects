@@ -1,67 +1,113 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Título da Página</title>
+    <title>SoulsLike</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #f0f0f0;
         }
         header {
-            background-color: #333;
-            color: #fff;
-            padding: 10px;
+            background-color: #1c2965;
+            color: white;
+            padding: 1em 0;
             text-align: center;
-            display: flex;
-            justify-content: space-between; /* Distribui os elementos horizontalmente */
-            align-items: center; /* Alinha os elementos verticalmente */
         }
-        header a {
-            background-color: #fff;
-            color: #333;
-            padding: 5px 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            margin-right: 10px;
-            text-decoration: none; /* Remove o sublinhado padrão dos links */
+        nav {
+            background-color: #333;
         }
-        header a:last-child {
-            margin-right: 0; /* Remove a margem direita do último link */
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
         }
-        main {
-            padding: 10px;
+        nav ul li {
+            float: left;
+        }
+        nav ul li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        nav ul li a:hover {
+            background-color: #111;
+        }
+        .container {
+            padding: 20px;
+        }
+        .content {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
         footer {
-            background-color: #333;
-            color: #fff;
-            padding: 10px;
+            background-color: #1c2965;
+            color: white;
             text-align: center;
+            padding: 1em 0;
             position: fixed;
-            bottom: 0;
             width: 100%;
+            bottom: 0;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        h2 {
+            color: #031a81;
+        }
+        a {
+            color: #031a81;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>T</h1>
-        <div>
-            <a href="pagina1.html">video</a>
-            <a href="pagina2.html">Botão 2</a>
-        </div>
+        <h1>Souls-Like</h1>
     </header>
-    
-    <main>
-        <p>Conteúdo da página vai aqui.</p>
-    </main>
-    
+    <nav>
+        <ul>
+            <li><a href="#sobre">Definição</a></li>
+            <li><a href="#dicas">Caracteristicas</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div id="sobre" class="content">
+            <h2>O que é Souls-Like</h2>
+            <p>Um "Soulslike" é um subgênero de jogos eletrônicos que se inspira fortemente na série "Souls" desenvolvida pela FromSoftware, especialmente nos jogos "Demon's Souls", "Dark Souls" e "Bloodborne". Esses jogos são conhecidos por suas mecânicas desafiadoras, combate meticuloso e atmosferas sombrias e envolventes. Aqui estão algumas das principais características dos jogos Soulslike:</p>
+        </div>
+        <div id="dicas" class="content">
+            <h2>O que é preciso para ser considerado um Souls-Like</h2>
+            <ul>
+                <li>Dificuldade Elevada</li>
+                <li>Combate corpo-corpo com mecanica de esquiva ou "parry"</li>
+                <li>Progressão e Punição</li>
+                <li>Exploração e Design de Níveis</li>
+                <li>Ambiente e História sombrios</li>
+            </ul>
+        </div>
+        <div id="galeria" class="content">
+            <img src= "54qluz68clzb1.jpg">
+        </div>
+        <div id="space" class="content">
+        </div>
+    </div>
     <footer>
-        <p>Rodapé da página.</p>
+        <p>&copy; 2024 Fotografia de Natureza. Todos os direitos reservados.</p>
     </footer>
 </body>
 </html>
